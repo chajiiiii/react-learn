@@ -8,10 +8,13 @@
 // }
 
 // 2. Using Destructuring
-export default function TabButton({ children }) {
+export default function TabButton({ children, onSelect }) {
   return (
     <li>
-      <button>{children}</button>
+      {/* onClick에 오는 값은 함수. 호출되면 안됨(괄호 붙이면 안됨) */}
+      {/* 내가 호출하는게 아니라 React가 버튼클릭되면 호출할거라서 */}
+      {/* 괄호를 붙이게 되면 해당 라인의 코드가 render될 때 호출되게 됨 */}
+      <button onClick={onSelect}>{children}</button>
     </li>
   );
 }
