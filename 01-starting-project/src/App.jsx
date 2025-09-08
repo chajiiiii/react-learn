@@ -24,27 +24,50 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
+            {/* spread syntax를 쓰려면 key와 props 이름이 같아야 가능 */}
+            {CORE_CONCEPTS.map((item) => (
+              <CoreConcepts key={item.title} {...item} />
+            ))}
+
             {/* props 받는 방법은 아래처럼 두가지가 있음 */}
             {/* spread syntax를 쓰려면 key와 props 이름이 같아야 가능 */}
-            <CoreConcepts {...CORE_CONCEPTS[0]} />
+            {/* <CoreConcepts {...CORE_CONCEPTS[0]} />
             <CoreConcepts {...CORE_CONCEPTS[1]} />
             <CoreConcepts {...CORE_CONCEPTS[2]} />
             <CoreConcepts
               title={CORE_CONCEPTS[3].title}
               description={CORE_CONCEPTS[3].description}
               image={CORE_CONCEPTS[3].image}
-            />
+            /> */}
           </ul>
         </section>
         <section id="examples">
           <h2>EXAMPLES</h2>
           <menu>
-            <TabButton onSelect={() => handleClick("components")}>
+            <TabButton
+              isSelected={selectedTopic === "components"}
+              onSelect={() => handleClick("components")}
+            >
               COMPONENTS
             </TabButton>
-            <TabButton onSelect={() => handleClick("jsx")}>JSX</TabButton>
-            <TabButton onSelect={() => handleClick("props")}>PROPS</TabButton>
-            <TabButton onSelect={() => handleClick("state")}>STATE</TabButton>
+            <TabButton
+              isSelected={selectedTopic === "jsx"}
+              onSelect={() => handleClick("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === "props"}
+              onSelect={() => handleClick("props")}
+            >
+              PROPS
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === "state"}
+              onSelect={() => handleClick("state")}
+            >
+              STATE
+            </TabButton>
             {/* <TabButton label="LABEL" /> */}
           </menu>
           {/* {selectedTopic} */}
