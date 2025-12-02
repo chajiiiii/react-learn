@@ -32,6 +32,10 @@ export default function Examples() {
   return (
     <Section title="Examples" id="examples">
       <Tabs
+        // 컨테이너 타입을 다이나믹하게 하고 싶을 때.
+        buttonsContainer="menu"
+        // buttonsContainer={SectionComponent}
+        // string 대신 컴포넌트도 적용 가능
         buttons={
           <>
             <TabButton
